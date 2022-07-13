@@ -24,11 +24,19 @@ driver = webdriver.Chrome(options = chrome_options, service=Service(ChromeDriver
 
 # Accessing the page of the video we'd like to scrape subtitles from
 driver.get("https://youtu.be/2c0CgiSQwaM")
+# Pausing video to change settings before beginning
+# videoPause = WebDriverWait(driver, timeout = 10).until(expected_conditions.element_to_be_clickable((By.ID, "movie-player")))
+# Updating visual settings
+# settingsButton = driver.find_element(By.CLASS_NAME, "ytp-settings-button")
+# settingsButton.click()
+# Unsure how to target quality as it's not a page element
+
 # Toggling on fullscreen with webdriver wait
 fullscreenButton = WebDriverWait(driver, timeout = 10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "ytp-fullscreen-button")))
 fullscreenButton.click()
 screenshotTag = 0
 playButton = driver.find_element(By.CLASS_NAME, "ytp-play-button")
+# Every 3 seconds, a screenshot will be taken until the video ends
 while playButton.get_attribute("title") != "Replay" :
     time.sleep(3)
     screenshotTag += 1
