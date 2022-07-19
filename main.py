@@ -23,7 +23,7 @@ chrome_options = Options()
 driver = webdriver.Chrome(options = chrome_options, service=Service(ChromeDriverManager().install()))
 
 # Accessing the page of the video we'd like to scrape subtitles from
-driver.get("https://youtu.be/2c0CgiSQwaM")
+driver.get("https://youtu.be/eWgh_9jo67c")
 # Pausing video to change settings before beginning
 # videoPause = WebDriverWait(driver, timeout = 10).until(expected_conditions.element_to_be_clickable((By.ID, "movie-player")))
 # Updating visual settings
@@ -40,4 +40,4 @@ playButton = driver.find_element(By.CLASS_NAME, "ytp-play-button")
 while playButton.get_attribute("title") != "Replay" :
     time.sleep(3)
     screenshotTag += 1
-    driver.save_screenshot('./screenshots/subtitle' + str(screenshotTag) + '.png')
+    driver.save_screenshot('./k2int/subtitle' + str(screenshotTag) + '.png')
